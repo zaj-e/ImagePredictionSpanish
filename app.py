@@ -45,8 +45,11 @@ def predict():
             prediction_idx = get_prediction(input_tensor)
             class_id, class_name = render_prediction(prediction_idx)
 
-            if class_name != "latop":
+            if class_name != "laptop":
                 class_name = translator.translate(class_name, "es").text
+
+            if class_name == "televisión":
+                class_name = "televisor"
 
             return jsonify({'class_name': class_name})
             # return jsonify({'class_id': class_id, 'class_name': class_name})
